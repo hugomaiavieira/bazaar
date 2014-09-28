@@ -9,8 +9,9 @@ gem 'unicorn'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'therubyracer',  platforms: :ruby
-gem 'jquery-rails'
 
+gem 'rails-i18n', '~> 4.0.3'
+gem 'devise-i18n', '~> 0.11.1'
 gem 'rails_admin', '~> 0.6.3'
 gem 'devise', '~> 3.3.0'
 
