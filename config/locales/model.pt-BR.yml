@@ -2,15 +2,23 @@ pt-BR:
   activerecord:
     models:
       category: Categoria
+      brand: Marca
+      size: Tamanho
       user: Usuário
     attributes:
       default: &default
         name: Nome
+      brand:
+        <<: *default
       category:
         <<: *default
+        sizes: Tamanhos
       user:
         email: E-mail
         password: Senha
         password_confirmation: Confirmação da Senha
         remember_me: Mantenha-me conectado
+      size:
+        <<: *default
+        categories: Categorias
 

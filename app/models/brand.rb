@@ -1,6 +1,4 @@
-class Category < ActiveRecord::Base
-  has_and_belongs_to_many :sizes
-
+class Brand < ActiveRecord::Base
   validates :name, presence: true, uniqueness: { case_sensitive: false }
 
   rails_admin do
@@ -10,7 +8,6 @@ class Category < ActiveRecord::Base
 
     edit do
       field :name
-      field :sizes
     end
   end
 end
