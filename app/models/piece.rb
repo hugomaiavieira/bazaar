@@ -2,6 +2,7 @@ class Piece < ActiveRecord::Base
   belongs_to :category
   belongs_to :size
   belongs_to :brand
+  belongs_to :member
 
   enum status: %w(stock sold removed)
 
@@ -17,6 +18,7 @@ class Piece < ActiveRecord::Base
   rails_admin do
     list do
       field :code
+      field :member
       field :category
       field :brand
       field :size
@@ -30,6 +32,7 @@ class Piece < ActiveRecord::Base
 
     edit do
       field :code
+      field :member
       field :category
       field :brand
       field :size
@@ -39,10 +42,10 @@ class Piece < ActiveRecord::Base
           { class: 'currency', type: 'text' }
         end
       end
-      field :entry_date  do
+      field :entry_date do
         date_format :default
       end
-      field :outbound_date  do
+      field :outbound_date do
         date_format :default
       end
       field :obs
@@ -50,6 +53,7 @@ class Piece < ActiveRecord::Base
 
     show do
       field :code
+      field :member
       field :category
       field :brand
       field :size
@@ -59,10 +63,10 @@ class Piece < ActiveRecord::Base
           ActiveSupport::NumberHelper.number_to_currency(value.try(:/, 100.0))
         end
       end
-      field :entry_date  do
+      field :entry_date do
         date_format :default
       end
-      field :outbound_date  do
+      field :outbound_date do
         date_format :default
       end
       field :obs

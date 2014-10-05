@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141005161422) do
+ActiveRecord::Schema.define(version: 20141005204225) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,18 @@ ActiveRecord::Schema.define(version: 20141005161422) do
   add_index "categories_sizes", ["category_id", "size_id"], name: "index_categories_sizes_on_category_id_and_size_id", using: :btree
   add_index "categories_sizes", ["size_id", "category_id"], name: "index_categories_sizes_on_size_id_and_category_id", using: :btree
 
+  create_table "members", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "document"
+    t.date     "birthday"
+    t.text     "address"
+    t.integer  "tax",        default: 40
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "pieces", force: true do |t|
     t.integer  "category_id"
     t.integer  "brand_id"
@@ -48,7 +60,13 @@ ActiveRecord::Schema.define(version: 20141005161422) do
     t.text     "obs"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "member_id"
   end
+
+  add_index "pieces", ["brand_id"], name: "index_pieces_on_brand_id", using: :btree
+  add_index "pieces", ["category_id"], name: "index_pieces_on_category_id", using: :btree
+  add_index "pieces", ["member_id"], name: "index_pieces_on_member_id", using: :btree
+  add_index "pieces", ["size_id"], name: "index_pieces_on_size_id", using: :btree
 
   create_table "sizes", force: true do |t|
     t.string   "name"

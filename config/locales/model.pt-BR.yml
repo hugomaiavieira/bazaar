@@ -3,6 +3,7 @@ pt-BR:
     models:
       category: Categoria
       brand: Marca
+      member: Membro
       piece: Peça
       size: Tamanho
       user: Usuário
@@ -12,17 +13,27 @@ pt-BR:
       category:
         name: Nome
         sizes: Tamanhos
+      member:
+        address: Endereço
+        birthday: Data de nascimento
+        document: Documento
+        email: E-mail
+        name: Name
+        pieces: Peças
+        phone: Telefone
+        tax: Taxa do Bazar
       piece:
         brand: Marca
         category: Categoria
-        size: Tamanho
-        status: Status
+        code: Código
         entry_date: Data de entrada
+        obs: Observação
         outbound_date: Data de saída
+        member: Membro
         price: Preço
         price_money: Preço
-        code: Código
-        obs: Observação
+        size: Tamanho
+        status: Status
       size:
         name: Nome
         categories: Categorias
