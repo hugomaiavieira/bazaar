@@ -2,6 +2,7 @@ pt-BR:
   activerecord:
     models:
       category: Categoria
+      customer: Cliente
       brand: Marca
       member: Membro
       piece: Peça
@@ -13,12 +14,17 @@ pt-BR:
       category:
         name: Nome
         sizes: Tamanhos
+      customer:
+        birthday: Data de nascimento
+        email: E-mail
+        name: Nome
+        phone: Telefone
       member:
         address: Endereço
         birthday: Data de nascimento
         document: Documento
         email: E-mail
-        name: Name
+        name: Nome
         pieces: Peças
         phone: Telefone
         tax: Taxa do Bazar
