@@ -1,8 +1,13 @@
 pt-BR:
   activerecord:
     models:
+      category: Categoria
       user: Usuário
     attributes:
+      default: &default
+        name: Nome
+      category:
+        <<: *default
       user:
         email: E-mail
         password: Senha
