@@ -24,12 +24,12 @@ module ActiveRecord
     def enum(definitions)
       super
 
-      translation = I18n.t("enum.#{self.class.name.downcase}.#{name}")
-
       definitions.each do |name, values|
         define_method("#{ name }_enum") do
+          translation = I18n.t("enum.#{self.class.name.downcase}.#{name}")
+
           self.class.send(name.to_s.pluralize).map do |key, value|
-            translation[[key.to_sym], value]
+            [translation[key.to_sym], value]
           end
         end
 

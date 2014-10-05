@@ -4,7 +4,7 @@ class CreatePieces < ActiveRecord::Migration
       t.integer :category_id
       t.integer :brand_id
       t.integer :size_id
-      t.integer :status
+      t.integer :status, default: 0
       t.date :entry_date
       t.date :outbound_date
       t.integer :price
