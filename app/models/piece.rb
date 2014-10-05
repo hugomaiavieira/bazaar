@@ -3,6 +3,8 @@ class Piece < ActiveRecord::Base
   belongs_to :size
   belongs_to :brand
 
+  enum status: %w(stock sold removed)
+
   acts_as_money price: :price_money
 
   validates :code, presence: true, uniqueness: { case_sensitive: false }
@@ -31,7 +33,7 @@ class Piece < ActiveRecord::Base
       field :category
       field :brand
       field :size
-      field :status
+      field :status, :enum
       field :price_money do
         html_attributes do
           { class: 'currency', type: 'text' }

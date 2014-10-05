@@ -1,0 +1,7 @@
+pt-BR:
+  enum:
+    piece:
+      status:
+        stock: Estoque
+        sold: Vendido
+        removed: Devolvido
