@@ -3,22 +3,32 @@ pt-BR:
     models:
       category: Categoria
       brand: Marca
+      piece: Peça
       size: Tamanho
       user: Usuário
     attributes:
-      default: &default
-        name: Nome
       brand:
-        <<: *default
+        name: Nome
       category:
-        <<: *default
+        name: Nome
         sizes: Tamanhos
+      piece:
+        brand: Marca
+        category: Categoria
+        size: Tamanho
+        status: Status
+        entry_date: Data de entrada
+        outbound_date: Data de saída
+        price: Preço
+        price_money: Preço
+        code: Código
+        obs: Observação
+      size:
+        name: Nome
+        categories: Categorias
       user:
         email: E-mail
         password: Senha
         password_confirmation: Confirmação da Senha
         remember_me: Mantenha-me conectado
-      size:
-        <<: *default
-        categories: Categorias
 
