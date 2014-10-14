@@ -7,7 +7,6 @@ FactoryGirl.define do
     entry_date "2014-10-05"
     outbound_date "2014-10-05"
     price 1
-    code "MyString"
     obs "MyText"
   end
 end

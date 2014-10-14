@@ -9,6 +9,7 @@ class Piece < ActiveRecord::Base
   acts_as_money price: :price_money
 
   validates :category, presence: true
+  validates :code, uniqueness: { case_sensitive: false }
 
   has_attached_file :image, :styles => { :thumb => "100x100#" }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
@@ -17,8 +18,18 @@ class Piece < ActiveRecord::Base
 
   after_create :define_code
 
+  def self.redefine_all_codes
+    all.each(&:define_code)
+  end
+
   def name
     code
+  end
+
+  def define_code
+    prefix = self.category_id.to_s.rjust(2, '0')
+    sufix  = self.id.to_s.rjust(4, '0')
+    update(code: "#{prefix}.#{sufix}")
   end
 
   rails_admin do
@@ -79,13 +90,5 @@ class Piece < ActiveRecord::Base
       end
       field :obs
     end
-  end
-
-  private
-
-  def define_code
-    prefix = self.category_id.to_s.rjust(3, '0')
-    sufix  = self.id.to_s.rjust(6, '0')
-    update(code: "#{prefix}.#{sufix}")
   end
 end
