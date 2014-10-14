@@ -5,5 +5,9 @@ class Brand < ActiveRecord::Base
 
   rails_admin do
     visible false
+
+    edit do
+      field :name
+    end
   end
 end

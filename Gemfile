@@ -17,6 +17,8 @@ gem 'rails-i18n', '~> 4.0.3'
 gem 'devise-i18n', '~> 0.11.1'
 gem 'rails_admin', '~> 0.6.3'
 gem 'devise', '~> 3.3.0'
+gem 'paperclip', '~> 4.2.0'
+gem 'aws-sdk', '~> 1.55.0'
 
 group :test, :development do
   gem 'rspec-rails', '~> 3.1.0'

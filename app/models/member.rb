@@ -8,14 +8,21 @@ class Member < ActiveRecord::Base
     less_than_or_equal_to: 100
   }
 
+  has_attached_file :image, :styles => { :thumb => "100x100#" }
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+  attr_accessor :delete_image
+  before_validation { self.image.clear if self.delete_image == '1' }
+
   rails_admin do
     list do
+      field :image
       field :name
       field :email
       field :phone
     end
 
     edit do
+      field :image
       field :name
       field :email
       field :phone
@@ -32,6 +39,7 @@ class Member < ActiveRecord::Base
     end
 
     show do
+      field :image
       field :name
       field :email
       field :phone

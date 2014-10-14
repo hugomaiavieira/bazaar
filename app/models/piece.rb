@@ -8,8 +8,12 @@ class Piece < ActiveRecord::Base
 
   acts_as_money price: :price_money
 
-  validates :code, presence: true, uniqueness: { case_sensitive: false }
   validates :category, presence: true
+
+  has_attached_file :image, :styles => { :thumb => "100x100#" }
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+  attr_accessor :delete_image
+  before_validation { self.image.clear if self.delete_image == '1' }
 
   after_create :define_code
 
@@ -19,6 +23,7 @@ class Piece < ActiveRecord::Base
 
   rails_admin do
     list do
+      field :image
       field :code
       field :member
       field :category
@@ -33,6 +38,7 @@ class Piece < ActiveRecord::Base
     end
 
     edit do
+      field :image
       field :member
       field :category
       field :brand
@@ -53,6 +59,7 @@ class Piece < ActiveRecord::Base
     end
 
     show do
+      field :image
       field :code
       field :member
       field :category

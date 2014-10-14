@@ -15,7 +15,9 @@ pt-BR:
         name: Nome
         sizes: Tamanhos
       customer:
+        address: Endereço
         birthday: Data de nascimento
+        document: Documento
         email: E-mail
         name: Nome
         phone: Telefone
@@ -23,6 +25,7 @@ pt-BR:
         address: Endereço
         birthday: Data de nascimento
         document: Documento
+        image: Imagem
         email: E-mail
         name: Nome
         pieces: Peças
@@ -33,6 +36,7 @@ pt-BR:
         category: Categoria
         code: Código
         entry_date: Data de entrada
+        image: Imagem
         obs: Observação
         outbound_date: Data de saída
         member: Membro
