@@ -28,6 +28,7 @@ class Member < ActiveRecord::Base
         help 'Obrigatório. Em porcentagem (%).'
       end
       field :pieces
+      field :obs
     end
 
     show do
@@ -41,6 +42,7 @@ class Member < ActiveRecord::Base
       field :address
       field :tax
       field :pieces
+      field :obs
     end
   end
 end
