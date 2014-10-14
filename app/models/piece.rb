@@ -11,6 +11,8 @@ class Piece < ActiveRecord::Base
   validates :code, presence: true, uniqueness: { case_sensitive: false }
   validates :category, presence: true
 
+  after_create :define_code
+
   def name
     code
   end
@@ -31,7 +33,6 @@ class Piece < ActiveRecord::Base
     end
 
     edit do
-      field :code
       field :member
       field :category
       field :brand
@@ -71,5 +72,13 @@ class Piece < ActiveRecord::Base
       end
       field :obs
     end
+  end
+
+  private
+
+  def define_code
+    prefix = self.category_id.to_s.rjust(3, '0')
+    sufix  = self.id.to_s.rjust(6, '0')
+    update(code: "#{prefix}.#{sufix}")
   end
 end
