@@ -18,6 +18,9 @@ class Customer < ActiveRecord::Base
       field :birthday do
         date_format :default
       end
+      field :document
+      field :address
+      field :obs
     end
 
     show do
@@ -27,6 +30,9 @@ class Customer < ActiveRecord::Base
       field :birthday do
         date_format :default
       end
+      field :document
+      field :address
+      field :obs
     end
   end
 end
