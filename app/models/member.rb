@@ -1,7 +1,7 @@
 class Member < ActiveRecord::Base
   has_many :pieces
 
-  validates :name, :email, :phone, :tax, presence: true
+  validates :name, :tax, presence: true
   validates :tax , numericality: {
     only_integer: true,
     greater_than_or_equal_to: 0,
