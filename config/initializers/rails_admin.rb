@@ -8,6 +8,8 @@ RailsAdmin.config do |config|
   end
   config.current_user_method(&:current_user)
 
+  config.total_columns_width = 1000
+
   ## == Cancan ==
   # config.authorize_with :cancan
 
